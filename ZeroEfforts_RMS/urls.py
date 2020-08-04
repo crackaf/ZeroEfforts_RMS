@@ -16,9 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+# Changing the orignal admin protal
 admin.site.site_header = "ZERO EFFORTS"
 admin.site.site_title = "ZERO EFFORTS Admin Portal"
-admin.site.index_title = "Welcome to ZERO EFFOrTS Portal"
+admin.site.index_title = "Welcome to ZERO EFFORTS Portal"
 
 urlpatterns = [
     path('admin/', admin.site.urls),
