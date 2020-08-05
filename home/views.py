@@ -9,3 +9,6 @@ def login(request):
 
 def logout(request):
     return render(request, 'logout.html')
+
+def create(request):
+    return render(request, 'create.html')
