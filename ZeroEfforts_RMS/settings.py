@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'home.apps.HomeConfig',
     'bootstrap',
     'fontawesome',
+    #'phone_field',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
