@@ -1,11 +1,6 @@
 from django.db import models
-from django.conf import settings
 
-# For phone numbers, external dependency in requirements.txt
-# Currently Disabled
-from phone_field import PhoneField
-
-# Create your models here
+# Create your models here.
 
 
 class Brand(models.Model):
@@ -140,14 +135,15 @@ class Order(models.Model):
 
 class Order_Item(models.Model):
     order = models.ForeignKey(
-      Order, on_delete=models.CASCADE)
+        Order, on_delete=models.CASCADE)
     product = models.ForeignKey(
-      Product, on_delete=models.CASCADE)
-    quantity=models.IntegerField(
+        Product, on_delete=models.CASCADE)
+    quantity = models.IntegerField(
         null=False, blank=False)
-    price=models.FloatField(
+    price = models.FloatField(
         null=False, blank=False)
-    discount=models.FloatField(null=False, blank=False, default=0)
+    discount = models.FloatField(null=False, blank=False, default=0)
+
 
 class Stock(models.Model):
     store = models.ForeignKey(

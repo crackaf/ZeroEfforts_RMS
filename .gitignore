@@ -1,5 +1,0 @@
-# ignore all logs
-*.sqlite3
-**/__pycache__
-**/migrations
-.vscode/
