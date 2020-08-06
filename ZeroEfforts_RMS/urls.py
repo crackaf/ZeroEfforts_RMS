@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 # Changing the orignal admin protal
 admin.site.site_header = "ZERO EFFORTS"
@@ -23,5 +23,5 @@ admin.site.index_title = "Welcome to ZERO EFFORTS Portal"
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('pos.urls'))
+    path('', include('pos.urls')),
 ]
