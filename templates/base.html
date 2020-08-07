@@ -1,14 +1,50 @@
 {% load static %}
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
-    {% comment %} <link rel="stylesheet" href="{% static 'mdbootstrap/css/mdb.min.css' %}"> {% endcomment %}
-    <script defer src="{% static 'fontawesome/js/all.min.js' %}"></script>
-</head>
-<body>
-    <script src="{% static 'bootstrap/js/jquery.min.js' %}"></script>
-    <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-    {% comment %} <script src="{% static 'mdbootstrap/js/mdb.min.js' %}"></script> {% endcomment %}
+    <meta charset="UTF-8">
+    {% comment %} <meta name="viewport" content="width=device-width, initial-scale=1.0"> {% endcomment %}
+
+    {% comment %} Bootstrap {% endcomment %}
+    {% comment %} <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}"> {% endcomment %}
+
+    {% comment %} MDBootstrap {% endcomment %}
+    <!-- Font Awesome -->
+    <link href="{% static 'fontawesome/css/fontawesome.min.css' %}" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="{% static 'mdbootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- Material Design for Bootstrap -->
+    <link href="{% static 'mdbootstrap/css/mdb.min.css' %}" rel="stylesheet">
+
+    <title>{% block title %}{% endblock %}</title>
 
     {% include 'navbar.html' %}
+
+
+</head>
+<body>
+    {% comment %} Bootstrap {% endcomment %}
+    {% comment %} <script src="{% static 'bootstrap/js/jquery.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script> {% endcomment %}
+
+
+    {% comment %} Font Awesome {% endcomment %}
+    <script src="{% static 'fontawesome/js/all.min.js' %}"></script>
+
+    {% comment %} MDBootstrap {% endcomment %}
+    <!-- jQuery -->
+    <script src="{% static 'mdbootstrap/js/jquery-3.3.1.min.js' %}"></script>
+    <!-- Popper.js -->
+    <script src="{% static 'mdbootstrap/js/popper.min.js' %}"></script>
+    <!-- Bootstrap -->
+    <script src="{% static 'mdbootstrap/js/bootstrap.min.js' %}"></script>
+    <!-- Material Design for Bootstrap -->
+    <script src="{% static 'mdbootstrap/js/mdb.min.js' %}"></script>
+
+
+    {% block body %}
+    {% endblock body %}
+
     {% include 'footer.html' %}
 </body>
+</html>

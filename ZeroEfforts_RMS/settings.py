@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     # My APPS
+    'home.apps.HomeConfig',
     'pos.apps.PosConfig',
 
     # External Dependecies
@@ -129,5 +130,4 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
-    '/var/www/static/',
 ]

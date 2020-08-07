@@ -23,5 +23,5 @@ admin.site.index_title = "Welcome to ZERO EFFORTS Portal"
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('pos.urls')),
+    path('', include('home.urls')),
 ]
