@@ -3,47 +3,54 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    {% comment %} <meta name="viewport" content="width=device-width, initial-scale=1.0"> {% endcomment %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     {% comment %} Bootstrap {% endcomment %}
-    {% comment %} <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}"> {% endcomment %}
-
-    {% comment %} MDBootstrap {% endcomment %}
-    <!-- Font Awesome -->
-    <link href="{% static 'fontawesome/css/fontawesome.min.css' %}" rel="stylesheet">
-    <!-- Bootstrap -->
-    <link href="{% static 'mdbootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-    <!-- Material Design for Bootstrap -->
-    <link href="{% static 'mdbootstrap/css/mdb.min.css' %}" rel="stylesheet">
-
-    <title>{% block title %}{% endblock %}</title>
-
-    {% include 'navbar.html' %}
-
-
-</head>
-<body>
-    {% comment %} Bootstrap {% endcomment %}
-    {% comment %} <script src="{% static 'bootstrap/js/jquery.min.js' %}"></script>
-    <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script> {% endcomment %}
-
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script> 
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script> 
 
     {% comment %} Font Awesome {% endcomment %}
     <script src="{% static 'fontawesome/js/all.min.js' %}"></script>
 
     {% comment %} MDBootstrap {% endcomment %}
-    <!-- jQuery -->
+    {% comment %} <!-- Font Awesome -->
+    <link href="{% static 'fontawesome/css/fontawesome.min.css' %}" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="{% static 'mdbootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- Material Design for Bootstrap -->
+    <link href="{% static 'mdbootstrap/css/mdb.min.css' %}" rel="stylesheet"> {% endcomment %}
+    {% comment %} MDBootstrap {% endcomment %}
+    {% comment %} <!-- jQuery -->
     <script src="{% static 'mdbootstrap/js/jquery-3.3.1.min.js' %}"></script>
     <!-- Popper.js -->
     <script src="{% static 'mdbootstrap/js/popper.min.js' %}"></script>
     <!-- Bootstrap -->
     <script src="{% static 'mdbootstrap/js/bootstrap.min.js' %}"></script>
     <!-- Material Design for Bootstrap -->
-    <script src="{% static 'mdbootstrap/js/mdb.min.js' %}"></script>
+    <script src="{% static 'mdbootstrap/js/mdb.min.js' %}"></script> {% endcomment %}
+
+    {% block extra_style %}
+    {% endblock extra_style %}
+
+    <title>{% block title %}{% endblock %} | ZeroEfforts</title>
+
+    {% comment %} {% include 'navbar.html' %} {% endcomment %}
 
 
-    {% block body %}
-    {% endblock body %}
+</head>
+<body>
+    {% comment %} Bootstrap {% endcomment %}
+    
+
+
+    
+
+    
+
+
+    {% block body_content %}
+    {% endblock body_content %}
 
     {% include 'footer.html' %}
 </body>

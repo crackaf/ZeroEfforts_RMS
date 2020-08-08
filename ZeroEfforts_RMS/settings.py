@@ -114,14 +114,14 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LOGIN_URL= '/'
 
-LOGIN_REQUIRED_IGNORE_PATHS = [
-    r'/logout/$'
-    r'/login/$',
-    r'/admin/$',
-    r'/admin/login/$',
-    r'/about/$',
-    r'/contact/$',
-]
+# LOGIN_REQUIRED_IGNORE_PATHS = [
+#     r'/logout/$'
+#     r'/login/$',
+#     r'/admin/$',
+#     r'/admin/login/$',
+#     r'/about/$',
+#     r'/contact/$',
+# ]
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
