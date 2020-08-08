@@ -13,7 +13,7 @@
   <div class="card-body px-lg-5 pt-0">
 
     <!-- Form -->
-    <form class="text-center" style="color: #757575;" action="." method="POST">
+    <form class="text-center" style="color: #757575;" action={% url 'home:login' %} method="POST">
 {% csrf_token %}
       <!-- Email -->
       <div class="md-form">

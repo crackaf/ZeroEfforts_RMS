@@ -25,19 +25,21 @@ SECRET_KEY = ')ay^*ig7#9m6g8+kwwh!u=yov)7p&#muam93+wb(s*sc8-(r+x'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+]
 
 
 # Application definition
 
 INSTALLED_APPS = [
     # My APPS
-    'home.apps.HomeConfig',
-    'pos.apps.PosConfig',
+    'account.apps.AccountConfig',
+    #'pos.apps.PosConfig',
 
     # External Dependecies
-    'bootstrap',
-    'fontawesome',
+    #'bootstrap',
+    #'fontawesome',
     #'phone_field',
 
     # Built-in APPS
@@ -55,6 +57,7 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    #'login_required.middleware.LoginRequiredMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -109,6 +112,16 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+LOGIN_URL= '/'
+
+LOGIN_REQUIRED_IGNORE_PATHS = [
+    r'/logout/$'
+    r'/login/$',
+    r'/admin/$',
+    r'/admin/login/$',
+    r'/about/$',
+    r'/contact/$',
+]
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/

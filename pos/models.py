@@ -13,6 +13,10 @@ class Brand(models.Model):
     def __str__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return reverse("brand:brand-detail", kwargs={"pk": self.pk})
+    
+
 
 class Category(models.Model):
     name = models.CharField(
@@ -24,7 +28,7 @@ class Category(models.Model):
         return self.name
 
 
-class Product(models.Model):
+class Inventory(models.Model):
     name = models.CharField(
         max_length=50, null=False, blank=False)
     price = models.FloatField(
@@ -137,8 +141,8 @@ class Order(models.Model):
 class Order_Item(models.Model):
     order = models.ForeignKey(
         Order, on_delete=models.CASCADE)
-    product = models.ForeignKey(
-        Product, on_delete=models.CASCADE)
+    inventory = models.ForeignKey(
+        Inventory, on_delete=models.CASCADE)
     quantity = models.IntegerField(
         null=False, blank=False)
     price = models.FloatField(
@@ -149,7 +153,7 @@ class Order_Item(models.Model):
 class Stock(models.Model):
     store = models.ForeignKey(
         Store, on_delete=models.CASCADE)
-    product = models.ForeignKey(
-        Product, on_delete=models.CASCADE)
+    inventory = models.ForeignKey(
+        Inventory, on_delete=models.CASCADE)
     quantity = models.IntegerField(
         null=False, blank=False)

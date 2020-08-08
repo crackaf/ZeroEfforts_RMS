@@ -23,5 +23,17 @@ admin.site.index_title = "Welcome to ZERO EFFORTS Portal"
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('home.urls')),
+    path('about/', views.about, name="about"),
+    path('', view.index),
+    path('account/', include('account.urls')),
+    # path('inventory/', include('inventory.urls')),
+    # path('manufacturer/', include('manufacturer.urls')),
+    # path('category/', include('category.urls')),
+    # path('customer/', include('customer.urls')),
+    # path('order/', include('order.urls')),
+    # path('warehouse/', include('warehouse.urls')),
+    # path('store/', include('store.urls')),
+    # path('sale/', include('sale.urls')),
+    # path('purchase/', include('purchase.urls')),
+    # path('staff/', include('staff.urls')),
 ]
