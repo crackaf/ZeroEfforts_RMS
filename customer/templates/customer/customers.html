@@ -2,6 +2,20 @@
 
 {% block body_content %}
 
+<br>
+<div class="row">
+	<div class="col">
+		<div class="card card-body">
+			<form method="get">
+
+            <br>
+		    <button class="btn btn-primary" type="submit">Search</button>
+		  </form>
+		</div>
+	</div>
+</div>
+<br>
+
 <div class="row">
     <div class="col-md">
         <div class="card card-body">
@@ -22,13 +36,13 @@
                 <tbody>
 
                     {% for customer in customers %}
-                    <tr class='clickable-row' onclick="document.location = '{{customer.id}}';">
+                    <tr class='clickable-row' onclick="document.location = '{% url 'customer:customer-detail' customer.id %}';">
                         {% comment %} <th scope="row">{{customer}}</th> {% endcomment %}
                         <td>{{customer.name}}</td>
                         <td>{{customer.phone}}</td>
                         <td>{{customer.email}}</td>
-                        <td><a href="#">Update</a></td>
-                        <td><a href="#">Delete</a></td>
+                        <td><a class="btn btn-sm btn-info" href="#">Update</a></td>
+                        <td><a class="btn btn-sm btn-danger" href="#">Delete</a></td>
                     </tr>
                     {% endfor %}
 
