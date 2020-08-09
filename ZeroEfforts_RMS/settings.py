@@ -34,7 +34,9 @@ ALLOWED_HOSTS = [
 
 INSTALLED_APPS = [
     # My APPS
-    'account.apps.AccountConfig',
+    #'account.apps.AccountConfig',
+    'inventory.apps.InventoryConfig',
+    'customer.apps.CustomerConfig',
     #'pos.apps.PosConfig',
 
     # External Dependecies

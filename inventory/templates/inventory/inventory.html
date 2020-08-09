@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block body_content %}
+
+<div class="row">
+    <div class="col-md">
+        <div class="card card-body">
+            <h5>Products</h5>
+        </div>
+        <div class="card card-body">
+            <table class="table table-hover">
+                <thead class="thead-light">
+                    <tr>
+                        {% comment %} <th scope="col">#</th> {% endcomment %}
+                        <th scope="col">Name</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Created Date</th>
+                        <th scope="col">Update</th>
+                        <th scope="col">Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    {% for product in products %}
+                    <tr class='clickable-row' onclick="document.location = '{{product.id}}';">
+                        {% comment %} <th scope="row">{{product}}</th> {% endcomment %}
+                        <td>{{product.name}}</td>
+                        <td>{{product.price}}</td>
+                        <td>{{product.createdDate}}</td>
+                        <td><a href="#">Update</a></td>
+                        <td><a href="#">Delete</a></td>
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+{% endblock body_content %}
