@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block body_content %}
+
+<form action="" method="POST">
+{% csrf_token %}
+    {% if form is not None %}
+        {{form.as_p}}
+    {% endif %}
+    <input type="submit" value="Submit">
+</form>
+
+{% endblock body_content %}

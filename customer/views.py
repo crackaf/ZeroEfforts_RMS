@@ -5,10 +5,21 @@ from .models import Customer
 
 def customer(request):
     customers = Customer.objects.all()
-
     return render(request, 'customer/customers.html', {'customers': customers})
 
-def customerDetail(request, pk):
-    customer = Customer.objects.get(id=pk)
+def customerCreate(request):
+    pass
 
+def customerDetail(request, pk):
+    customer = get_object_or_404(Customer, id=pk)
     return render(request, 'customer/customer_detail.html', {'customer': customer})
+
+
+def customerUpdate(request, pk):
+    pass
+
+
+def customerDelete(request, pk):
+    pass
+
+

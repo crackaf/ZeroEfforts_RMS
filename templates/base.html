@@ -34,7 +34,11 @@
 
     <title>{% block title %}{% endblock %} | ZeroEfforts</title>
 
-    {% include 'navbar.html' %}
+    {% if show_navbar is not None %}
+    {% else %}
+        {% include 'navbar.html' %}
+    {% endif %}
+    
 
 
 </head>
