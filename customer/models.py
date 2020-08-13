@@ -13,8 +13,8 @@ class Customer(models.Model):
     
     # address=models.ForeignKey(Address, on_delete=models.DO_NOTHING, null=true)
     class Meta:
-        verbose_name = _("Customer")
-        verbose_name_plural = _("Customers")
+        verbose_name = "Customer"
+        verbose_name_plural = "Customers"
 
     def __str__(self):
         return self.name

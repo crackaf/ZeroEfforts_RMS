@@ -37,13 +37,14 @@ INSTALLED_APPS = [
     #'account.apps.AccountConfig',
     'inventory.apps.InventoryConfig',
     'customer.apps.CustomerConfig',
-    'category.apps.CategoryConfig'
+    'category.apps.CategoryConfig',
     #'pos.apps.PosConfig',
 
     # External Dependecies
     #'bootstrap',
     #'fontawesome',
     #'phone_field',
+    'simple_history',
 
     # Built-in APPS
     'django.contrib.admin',
@@ -52,6 +53,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
 ]
 
 MIDDLEWARE = [
@@ -63,6 +65,7 @@ MIDDLEWARE = [
     #'login_required.middleware.LoginRequiredMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'simple_history.middleware.HistoryRequestMiddleware',
 ]
 
 ROOT_URLCONF = 'ZeroEfforts_RMS.urls'

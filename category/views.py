@@ -6,7 +6,7 @@ from .forms import CategoryForm
 
 def category(request):
     categories = Category.objects.all()
-    return render(request, 'category/categories.html', {'categories': categories})
+    return render(request, 'category/category.html', {'items': categories})
 
 
 def categoryCreate(request):
@@ -23,7 +23,7 @@ def categoryCreate(request):
 
 def categoryDetail(request, pk):
     category = get_object_or_404(Category, id=pk)
-    return render(request, 'category/category_detail.html', {'category': category})
+    return render(request, 'category/category_detail.html', {'item': category})
 
 
 def categoryUpdate(request, pk):
