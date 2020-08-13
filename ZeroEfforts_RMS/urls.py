@@ -28,7 +28,7 @@ urlpatterns = [
     #path('', include('account.urls')),
     path('inventory/', include('inventory.urls')),
     # path('manufacturer/', include('manufacturer.urls')),
-    # path('category/', include('category.urls')),
+    path('category/', include('category.urls')),
     path('customer/', include('customer.urls')),
     # path('order/', include('order.urls')),
     # path('warehouse/', include('warehouse.urls')),

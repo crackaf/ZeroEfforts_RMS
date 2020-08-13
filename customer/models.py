@@ -12,6 +12,12 @@ class Customer(models.Model):
         default='zeroefforts.dev@gmail.com', null=False, blank=False)
     
     # address=models.ForeignKey(Address, on_delete=models.DO_NOTHING, null=true)
+    class Meta:
+        verbose_name = _("Customer")
+        verbose_name_plural = _("Customers")
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse("customer:customer-detail", kwargs={"pk": self.pk})
