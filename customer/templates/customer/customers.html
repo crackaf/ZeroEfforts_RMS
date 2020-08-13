@@ -41,8 +41,8 @@
                         <td>{{customer.name}}</td>
                         <td>{{customer.phone}}</td>
                         <td>{{customer.email}}</td>
-                        <td><a class="btn btn-sm btn-info" href="#">Update</a></td>
-                        <td><a class="btn btn-sm btn-danger" href="#">Delete</a></td>
+                        <td><a class="btn btn-sm btn-info" href="{% url 'customer:customer-update' customer.id %}">Update</a></td>
+                        <td><a class="btn btn-sm btn-danger" href="{% url 'customer:customer-delete' customer.id %}">Delete</a></td>
                     </tr>
                     {% endfor %}
 

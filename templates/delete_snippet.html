@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% comment %} {% block title %}
+{{form | to_class_name}}
+{% endblock title %} {% endcomment %}
+
+{% block body_content %}
+
+<br>
+<div class="row">
+    <div class="col-md-6">
+        <div class="card card-body">
+
+            <p>Are you sure you want to delete "{{item}}"?</p>
+
+            <form action="" method="POST">
+
+                {% csrf_token %}
+                <input class="btn btn-warning" type="button" value="Cancel" onClick="javascript:history.go(-1);">
+
+                <input class="btn btn-danger" type="submit" name="Confirm">
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock body_content %}

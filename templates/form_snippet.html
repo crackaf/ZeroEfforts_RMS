@@ -1,12 +1,24 @@
 {% extends 'base.html' %}
 
+{% comment %} {% block title %}
+    {{form | to_class_name}}
+{% endblock title %} {% endcomment %}
+
 {% block body_content %}
 
 <form action="" method="POST">
 {% csrf_token %}
-    {% if form is not None %}
+    {% for field in form %}
+        <div class="fieldWrapper">
+            {{ field.errors }}
+            {{ field.label_tag }} {{ field }}
+        </div>
+    {% endfor %}
+
+    {% comment %} {% if form is not None %}
         {{form.as_p}}
-    {% endif %}
+    {% endif %} {% endcomment %}
+
     <input type="submit" value="Submit">
 </form>
 

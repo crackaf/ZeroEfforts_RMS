@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Customer
+from .forms import CustomerForm
 # Create your views here.
 
 
@@ -7,8 +8,18 @@ def customer(request):
     customers = Customer.objects.all()
     return render(request, 'customer/customers.html', {'customers': customers})
 
+
 def customerCreate(request):
-    pass
+    form = CustomerForm()
+    if request.method == 'POST':
+        form = CustomerForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('customer:customer')
+
+    context = {'form': form}
+    return render(request, 'form_snippet.html', context)
+
 
 def customerDetail(request, pk):
     customer = get_object_or_404(Customer, id=pk)
@@ -16,10 +27,27 @@ def customerDetail(request, pk):
 
 
 def customerUpdate(request, pk):
-    pass
+    cust = get_object_or_404(Customer, id=pk)
+    form = CustomerForm(instance=cust)
+    if request.method == 'POST':
+        form = CustomerForm(request.POST, instance=cust)
+        if form.is_valid():
+            form.save()
+            return redirect('customer:customer')
+
+    context = {'form': form}
+    return render(request, 'form_snippet.html', context)
 
 
 def customerDelete(request, pk):
-    pass
+    cust = get_object_or_404(Customer, id=pk)
+    if request.method == "POST":
+        cust.delete()
+        return redirect('customer:customer')
 
-
+    context = {
+        'item': cust,
+        'delete_url': 'customer:customer-delete',
+        'return_url': 'customer:customer'
+    }
+    return render(request, 'delete_snippet.html', context)
