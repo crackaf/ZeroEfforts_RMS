@@ -35,14 +35,14 @@
                 </thead>
                 <tbody>
 
-                    {% for customer in customers %}
-                    <tr class='clickable-row' onclick="document.location = '{% url 'customer:customer-detail' customer.id %}';">
-                        {% comment %} <th scope="row">{{customer}}</th> {% endcomment %}
-                        <td>{{customer.name}}</td>
-                        <td>{{customer.phone}}</td>
-                        <td>{{customer.email}}</td>
-                        <td><a class="btn btn-sm btn-info" href="{% url 'customer:customer-update' customer.id %}">Update</a></td>
-                        <td><a class="btn btn-sm btn-danger" href="{% url 'customer:customer-delete' customer.id %}">Delete</a></td>
+                    {% for item in items %}
+                    <tr class='clickable-row' onclick="document.location = '{% url 'customer:customer-detail' item.id %}';">
+                        {% comment %} <th scope="row">{{item}}</th> {% endcomment %}
+                        <td>{{item.name}}</td>
+                        <td>{{item.phone}}</td>
+                        <td>{{item.email}}</td>
+                        <td><a class="btn btn-sm btn-info" href="{% url 'customer:customer-update' item.id %}">Update</a></td>
+                        <td><a class="btn btn-sm btn-danger" href="{% url 'customer:customer-delete' item.id %}">Delete</a></td>
                     </tr>
                     {% endfor %}
 
