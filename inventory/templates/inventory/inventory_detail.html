@@ -7,23 +7,23 @@
 <div class="row">
 	<div class="col-md">
 		<div class="card card-body">
-			<h5>Inventory: {{ product.name }}</h5>
+			<h5>Inventory: {{ item.name }}</h5>
 			<hr>
-			<a class="btn btn-outline-info  btn-sm btn-block" href="">Update Product</a>
-			<a class="btn btn-outline-danger  btn-sm btn-block" href="">Delete Product</a>
-
+			<a class="btn btn-outline-info  btn-sm btn-block" href="{% url 'inventory:inventory-update' item.id %}">Update Customer</a>
+			<a class="btn btn-outline-danger  btn-sm btn-block" href="{% url 'inventory:inventory-delete' item.id %}">Delete Customer</a>
 		</div>
 	</div>
 
 	<div class="col-md">
 		<div class="card card-body">
-			<h5>Inventory Detail</h5>
+			<h5>Contact Information</h5>
 			<hr>
-			<p>Price: {{ product.price }}</p>
-			<p>Description: {{ product.description }}</p>
-			<p>Manufacturer: {{ product.description }}</p>
-			<p>Categories: {{ product.description }}</p>
-			<p>Created Date: {{ product.description }}</p>
+			<p>Price: {{ item.price }}</p>
+			<p>Manufacturer: {{ item.manufacturer }}</p>
+			<p>Category: {{ item.category }}</p>
+			<p>Description: {{ item.decription }}</p>
+			<p>Created Date: {{ item.createdDate }}</p>
+			<p>Updated Date: {{ item.UpdatedDate }}</p>
 		</div>
 	</div>
 

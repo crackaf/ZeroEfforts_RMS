@@ -17,7 +17,7 @@ class Inventory(models.Model):
     description = models.TextField(
         null=True, blank=True)
     createdDate = models.DateTimeField(auto_now_add=True)
-    updatedDate = models.DateTimeField(auto_now=False)
+    updatedDate = models.DateTimeField(auto_now=True)
     createdBy = models.ForeignKey(
         settings.AUTH_USER_MODEL, on_delete=models.DO_NOTHING, related_name='%(class)s_product_created')
     updatedBy = models.ForeignKey(

@@ -23,7 +23,7 @@ def customerCreate(request):
 
 def customerDetail(request, pk):
     inventory = get_object_or_404(Inventory, id=pk)
-    return render(request, 'inventory/customer_detail.html', {'item': inventory})
+    return render(request, 'inventory/inventory_detail.html', {'item': inventory})
 
 
 def customerUpdate(request, pk):
