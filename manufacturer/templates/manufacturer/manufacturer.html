@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block body_content %}
+
+<br>
+<div class="row">
+	<div class="col">
+		<div class="card card-body">
+			<form method="get">
+
+            <br>
+		    <button class="btn btn-primary" type="submit">Search</button>
+		  </form>
+		</div>
+	</div>
+</div>
+<br>
+
+<div class="row">
+    <div class="col-md">
+        <div class="card card-body">
+            <h5>Manufacturers</h5>
+        </div>
+        <div class="card card-body">
+            <table class="table table-hover">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Update</th>
+                        <th scope="col">Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    {% for item in items %}
+                    <tr class='clickable-row' onclick="document.location = '{% url 'manufacturer:manufacturer-detail' item.id %}';">
+                        <th scope="row">{{forloop.counter}}</th>
+                        <td>{{item.name}}</td>
+                        <td>{{item.decription}}</td>
+                        <td><a class="btn btn-sm btn-info" href="{% url 'manufacturer:manufacturer-update' item.id %}">Update</a></td>
+                        <td><a class="btn btn-sm btn-danger" href="{% url 'manufacturer:manufacturer-delete' item.id %}">Delete</a></td>
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+{% endblock body_content %}
