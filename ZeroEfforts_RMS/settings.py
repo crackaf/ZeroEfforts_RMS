@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'inventory.apps.InventoryConfig',
     'customer.apps.CustomerConfig',
     'category.apps.CategoryConfig',
+    'manufacturer.apps.ManufacturerConfig',
+    
     #'pos.apps.PosConfig',
 
     # External Dependecies

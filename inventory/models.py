@@ -13,7 +13,7 @@ class Inventory(models.Model):
     manufacturer = models.ForeignKey(
         Manufacturer, on_delete=models.DO_NOTHING, null=True, blank=True)
     category = models.ManyToManyField(
-        Category, on_delete=models.DO_NOTHING,  null=True, blank=True)
+        Category, null=True, blank=True)
     description = models.TextField(
         null=True, blank=True)
     createdDate = models.DateTimeField(auto_now_add=True)

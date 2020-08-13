@@ -1,18 +1,18 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Customer
-from .forms import CustomerForm
+from .models import Inventory
+from .forms import InventoryForm
 # Create your views here.
 
 
 def inventory(request):
-    inventories = Customer.objects.all()
+    inventories = Inventory.objects.all()
     return render(request, 'inventory/inventory.html', {'items': inventories})
 
 
 def customerCreate(request):
-    form = CustomerForm()
+    form = InventoryForm()
     if request.method == 'POST':
-        form = CustomerForm(request.POST)
+        form = InventoryForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('inventory:inventory')
@@ -22,15 +22,15 @@ def customerCreate(request):
 
 
 def customerDetail(request, pk):
-    inventory = get_object_or_404(Customer, id=pk)
+    inventory = get_object_or_404(Inventory, id=pk)
     return render(request, 'inventory/customer_detail.html', {'item': inventory})
 
 
 def customerUpdate(request, pk):
-    cust = get_object_or_404(Customer, id=pk)
-    form = CustomerForm(instance=cust)
+    cust = get_object_or_404(Inventory, id=pk)
+    form = InventoryForm(instance=cust)
     if request.method == 'POST':
-        form = CustomerForm(request.POST, instance=cust)
+        form = InventoryForm(request.POST, instance=cust)
         if form.is_valid():
             form.save()
             return redirect('inventory:inventory')
@@ -40,7 +40,7 @@ def customerUpdate(request, pk):
 
 
 def customerDelete(request, pk):
-    cust = get_object_or_404(Customer, id=pk)
+    cust = get_object_or_404(Inventory, id=pk)
     if request.method == "POST":
         cust.delete()
         return redirect('inventory:inventory')
