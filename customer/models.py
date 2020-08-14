@@ -10,7 +10,7 @@ class Customer(models.Model):
         max_length=50, null=False, blank=True)
     email = models.EmailField(
         default='zeroefforts.dev@gmail.com', null=False, blank=False)
-    
+
     # address=models.ForeignKey(Address, on_delete=models.DO_NOTHING, null=true)
     class Meta:
         verbose_name = "Customer"
