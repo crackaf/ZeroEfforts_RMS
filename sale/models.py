@@ -7,7 +7,7 @@ from inventory.models import Inventory
 class Sale(models.Model):
 
     customer = models.ForeignKey(
-        Customer, on_delete=models.DO_NOTHING)
+        Customer, on_delete=models.DO_NOTHING, null=True)
 
     # Making choices
     COMPLETED = 'CO'
