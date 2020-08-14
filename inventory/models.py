@@ -32,3 +32,5 @@ class Inventory(models.Model):
 
     def get_absolute_url(self):
         return reverse("inventory:inventory-detail", kwargs={"pk": self.pk})
+
+
