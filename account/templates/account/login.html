@@ -319,9 +319,9 @@
         <!-- Login Form -->
         <form  method="POST" action="{% url 'account:login' %}" >
             {% csrf_token %}
-            {{ form.as_p}}
-            {% comment %} <input type="text" id="login" class="fadeIn second" name="username" placeholder="login">
-            <input type="password" id="password" class="fadeIn third" name="password" placeholder="password"> {% endcomment %}
+            {% comment %} {{ form.as_p}} {% endcomment %}
+            <input type="text" id="login" class="fadeIn second" name="username" placeholder="login">
+            <input type="password" id="password" class="fadeIn third" name="password" placeholder="password">
             <input type="submit" class="fadeIn fourth" value="Log In">
         </form>
 
