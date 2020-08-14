@@ -55,8 +55,8 @@ class SaleDetail(models.Model):
         null=False, blank=False, default=0)
 
     class Meta:
-        verbose_name = _("OrderDetail")
-        verbose_name_plural = _("OrderDetail")
+        verbose_name = "Sale Detail"
+        verbose_name_plural = "Sale Detail"
 
     def __str__(self):
         return self.name
