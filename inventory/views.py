@@ -9,7 +9,7 @@ def inventory(request):
     return render(request, 'inventory/inventory.html', {'items': inventories})
 
 
-def customerCreate(request):
+def inventoryCreate(request):
     form = InventoryForm()
     if request.method == 'POST':
         form = InventoryForm(request.POST)
@@ -21,12 +21,12 @@ def customerCreate(request):
     return render(request, 'form_snippet.html', context)
 
 
-def customerDetail(request, pk):
+def inventoryDetail(request, pk):
     inventory = get_object_or_404(Inventory, id=pk)
     return render(request, 'inventory/inventory_detail.html', {'item': inventory})
 
 
-def customerUpdate(request, pk):
+def inventoryUpdate(request, pk):
     cust = get_object_or_404(Inventory, id=pk)
     form = InventoryForm(instance=cust)
     if request.method == 'POST':
@@ -39,7 +39,7 @@ def customerUpdate(request, pk):
     return render(request, 'form_snippet.html', context)
 
 
-def customerDelete(request, pk):
+def inventoryDelete(request, pk):
     cust = get_object_or_404(Inventory, id=pk)
     if request.method == "POST":
         cust.delete()
