@@ -4,8 +4,12 @@ from store.models import Store
 
 
 class InventoryForm(forms.ModelForm):
-    store=forms.ModelChoiceField(Store.objects.all())
+    store = forms.ModelChoiceField(queryset=Store.objects.all())
+    quantity=forms.IntegerField()
+
     class Meta:
         model = Inventory
         fields = "__all__"
-        
+    
+
+

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'category.apps.CategoryConfig',
     'manufacturer.apps.ManufacturerConfig',
     'store.apps.StoreConfig',
+    'stock.apps.StockConfig',
     #'pos.apps.PosConfig',
 
     # External Dependecies
@@ -99,6 +100,10 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.',
+    #     'NAME': BASE_DIR / 'db.sqlite3',
+    # }
 }
 
 

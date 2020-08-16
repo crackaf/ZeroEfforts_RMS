@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Inventory
 from .forms import InventoryForm
+from stock.forms import StockForm
+from stock.models import Stock
 # Create your views here.
 
 
@@ -14,7 +16,18 @@ def inventoryCreate(request):
     if request.method == 'POST':
         form = InventoryForm(request.POST)
         if form.is_valid():
-            form.save()
+            newInventory = form.save()
+            print(form.cleaned_data['store'].pk,
+                  newInventory.name,
+                  form.cleaned_data['quantity'],
+                  sep='\n'
+            )
+            newStock = Stock(
+                store=form.cleaned_data['store'],
+                inventory=newInventory,
+                quantity=form.cleaned_data['quantity']
+            )
+            newStock.save()
             return redirect('inventory:inventory')
 
     context = {'form': form}
