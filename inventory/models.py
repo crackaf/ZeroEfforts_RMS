@@ -8,7 +8,7 @@ from category.models import Category
 
 class Inventory(models.Model):
     name = models.CharField(
-        max_length=50, null=False, blank=False)
+        max_length=50, null=False, blank=False, unique=True)
     price = models.FloatField(
         null=False, blank=False)
     manufacturer = models.ForeignKey(
