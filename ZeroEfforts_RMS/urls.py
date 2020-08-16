@@ -33,7 +33,7 @@ urlpatterns = [
     # path('order/', include('order.urls')),
     # path('warehouse/', include('warehouse.urls')),
     # path('store/', include('store.urls')),
-    # path('sale/', include('sale.urls')),
+    path('sale/', include('sale.urls')),
     # path('purchase/', include('purchase.urls')),
     # path('staff/', include('staff.urls')),
 ]

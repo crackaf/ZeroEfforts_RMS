@@ -6,7 +6,7 @@ from .forms import CustomerForm
 
 def customer(request):
     customers = Customer.objects.all()
-    return render(request, 'customer/customers.html', {'items': customers})
+    return render(request, 'customer/customer.html', {'items': customers})
 
 
 def customerCreate(request):
