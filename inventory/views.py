@@ -8,7 +8,11 @@ from stock.models import Stock
 
 def inventory(request):
     inventories = Inventory.objects.all()
-    return render(request, 'inventory/inventory.html', {'items': inventories})
+    stocks= Stock.objects.all()
+    context={
+        'items':inventories
+    }
+    return render(request, 'inventory/inventory.html', context)
 
 
 def inventoryCreate(request):
@@ -17,17 +21,11 @@ def inventoryCreate(request):
         form = InventoryForm(request.POST)
         if form.is_valid():
             newInventory = form.save()
-            print(form.cleaned_data['store'].pk,
-                  newInventory.name,
-                  form.cleaned_data['quantity'],
-                  sep='\n'
-            )
-            newStock = Stock(
+            Stock.objects.create(
                 store=form.cleaned_data['store'],
                 inventory=newInventory,
                 quantity=form.cleaned_data['quantity']
             )
-            newStock.save()
             return redirect('inventory:inventory')
 
     context = {'form': form}

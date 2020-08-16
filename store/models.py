@@ -4,7 +4,7 @@ from django.db import models
 
 class Store(models.Model):
     name = models.CharField(
-        max_length=50, null=False, blank=False)
+        max_length=50, null=False, blank=False, unique=True)
     description = models.TextField(
         null=True, blank=True)
     

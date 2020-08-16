@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load inventory_extras %}
 {% block body_content %}
 
 <br>
@@ -28,8 +28,8 @@
                         <th scope="col">#</th>
                         <th scope="col">Name</th>
                         <th scope="col">Price</th>
-                        <th scope="col">Manufacturer</th>
-                        <th scope="col">Category</th>
+                        {% comment %} <th scope="col">Category</th> {% endcomment %}
+                        <th scope="col">Qty</th>
                         <th scope="col">Update</th>
                         <th scope="col">Delete</th>
                     </tr>
@@ -40,8 +40,8 @@
                     <tr class='clickable-row' onclick="document.location = '{% url 'inventory:inventory-detail' item.id %}';">
                         <th scope="row">{{forloop.counter}}</th>
                         <td>{{item.name}}</td>
-                        <td>{{item.phone}}</td>
-                        <td>{{item.email}}</td>
+                        <td>{{item.price}}</td>
+                        <td>{{item|get_quantity}}</td>
                         <td><a class="btn btn-sm btn-info" href="{% url 'inventory:inventory-update' item.id %}">Update</a></td>
                         <td><a class="btn btn-sm btn-danger" href="{% url 'inventory:inventory-delete' item.id %}">Delete</a></td>
                     </tr>

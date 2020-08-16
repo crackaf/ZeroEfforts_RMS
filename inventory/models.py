@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+from django.shortcuts import get_object_or_404
 from manufacturer.models import Manufacturer
 from category.models import Category
 # Create your models here.
@@ -32,5 +33,3 @@ class Inventory(models.Model):
 
     def get_absolute_url(self):
         return reverse("inventory:inventory-detail", kwargs={"pk": self.pk})
-
-
