@@ -8,20 +8,22 @@
 
 <form action="" method="POST">
 {% csrf_token %}
-    {% for field in form %}
+    {% comment %} {% for field in form %}
         <div class="fieldWrapper">
             {{ field.errors }}
             {{ field.label_tag }} {{ field }}
         </div>
-    {% endfor %}
+    {% endfor %} {% endcomment %}
     
-    {% comment %} {% if form is not None %}
-        {{form.as_p}}
-    {% endif %} {% endcomment %}
+    {% if form is not None %}
+        {{form}}
+    {% endif %}
     
 
     <input class="btn btn-success" type="submit" value="Save">
 </form>
+
+
 
 
 {% endblock body_content %}

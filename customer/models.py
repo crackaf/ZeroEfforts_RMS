@@ -1,5 +1,5 @@
 from django.db import models
-
+from address.models import Address
 # Create your models here.
 
 
@@ -11,7 +11,8 @@ class Customer(models.Model):
     email = models.EmailField(
         default='zeroefforts.dev@gmail.com', null=False, blank=False)
 
-    # address=models.ForeignKey(Address, on_delete=models.DO_NOTHING, null=true)
+    address=models.ForeignKey(
+        Address, on_delete=models.DO_NOTHING, null=True, blank=True)
     class Meta:
         verbose_name = "Customer"
         verbose_name_plural = "Customers"

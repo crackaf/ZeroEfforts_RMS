@@ -1,7 +1,13 @@
+from django.forms import widgets
 from django import forms
 from .models import Sale
 from inventory.models import Inventory
 
+# class MyMultiSelect(widgets.SelectMultiple):
+#     def create_option(self, name, value, label, selected, index, subindex=None, attrs=None):
+#         option = super().create_option(name, value, label, selected, index, subindex, attrs)
+#         option['attrs']['class'] = 'selectpicker'
+#         return option
 
 class SaleForm(forms.ModelForm):
     SOME_CHOICES = (
@@ -10,32 +16,21 @@ class SaleForm(forms.ModelForm):
         (3, "Changai"),
         (4, "London"),
     )
-
-    inventories = forms.ModelChoiceField(queryset=Inventory.objects.all(),
-                                         widget=forms.SelectMultiple(
-        attrs={
+    # invetoryieess= forms.ModelMultipleChoiceField(Inventory.objects.all())
+    inventories = forms.ModelMultipleChoiceField(
+        queryset=Inventory.objects.all(),
+        widget=forms.Select(attrs={
             'class': 'selectpicker'
         }
+        )
     )
-    )
-    testing2 = forms.ModelMultipleChoiceField(queryset=Inventory.objects.all(),
-                                              widget=forms.SelectMultiple(attrs={
-                                                  'class': 'selectpicker'
-                                              }
-    )
-    )
+    
+    # invent=forms.ModelMultipleChoiceField(
+    #     queryset=Inventory.objects.all(),
+    #     widget=MyMultiSelect
+    # )
+    
 
     class Meta:
         model = Sale
         fields = "__all__"
-
-
-class CustomerForm(forms.Form):
-
-    OPTIONS = (
-        ("AUT", "Austria"),
-        ("DEU", "Germany"),
-        ("NLD", "Neitherlands"),
-    )
-    Countries = forms.MultipleChoiceField(widget=forms.CheckboxSelectMultiple,
-                                          choices=OPTIONS)

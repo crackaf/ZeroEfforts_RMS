@@ -8,7 +8,6 @@ def sale(request):
     sales = Sale.objects.all()
     return render(request, 'sale/sale.html', {'items': sales})
 
-
 def saleCreate(request):
     form = SaleForm()
     if request.method == 'POST':

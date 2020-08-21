@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'store.apps.StoreConfig',
     'stock.apps.StockConfig',
     'sale.apps.SaleConfig',
+    'address.apps.AddressConfig',
     #'pos.apps.PosConfig',
 
     # External Dependecies
@@ -49,6 +50,7 @@ INSTALLED_APPS = [
     #'fontawesome',
     #'phone_field',
     'simple_history',
+    'django_select2',
 
     # Built-in APPS
     'django.contrib.admin',
