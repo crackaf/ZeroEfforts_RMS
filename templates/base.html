@@ -4,6 +4,7 @@
     block - body
     block - extrahead
     block - extrajavascript
+    block - extrastyle
 {% endcomment %}
 {% load static %}
 <!DOCTYPE html>
@@ -28,6 +29,10 @@
 
   <!-- Custom styles for this template-->
   <link href="{% static 'css/sb-admin-2.min.css' %}" rel="stylesheet">
+
+  <!-- Custom styles for this page -->
+  {% block extrastyle %}
+  {% endblock extrastyle %}
 
 </head>
 
@@ -115,12 +120,8 @@
   <script src="{% static 'js/sb-admin-2.min.js' %}"></script>
 
     <!-- Extra JavaScript -->
-    $(".nav .nav-link").on("click", function(){
-   $(".nav").find(".active").removeClass("active");
-   $(this).addClass("active");
-});
+   
     {% block extrajavascript %}
-    
     {% endblock extrajavascript %}
 
 

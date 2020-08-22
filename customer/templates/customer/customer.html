@@ -1,60 +1,83 @@
-{% extends 'base.html' %}
+{% extends 'base.html'%}
+{% load static %}
 
-{% block body_content %}
+{% block extrastyle %}
+<link href="{% static 'vendor/datatables/dataTables.bootstrap4.min.css' %}" rel="stylesheet">
+{% endblock extrastyle %}
 
-<br>
+
+{% block body %}
+
+{% comment %} <br>
 <div class="row">
-    <div class="col">
-        <div class="card card-body">
-            <form method="get">
-
-                <br>
-                <button class="btn btn-primary" type="submit">Search</button>
-            </form>
-        </div>
-    </div>
+	<div class="col">
+		<div class="card card-body">
+			<form method="get">
+				<br>
+				<button class="btn btn-primary" type="submit">Search</button>
+			</form>
+		</div>
+	</div>
 </div>
-<br>
+<br> {% endcomment %}
 
-<div class="row">
-    <div class="col-md">
-        <div class="card ">
-            <div class="card-header">
-                <h5>Customers</h5>
-            </div>
-            <div class="card-body">
-                <table class="table table-hover">
-                    <thead class="thead-light">
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Phone</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Update</th>
-                            <th scope="col">Delete</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                        {% for item in items %}
-                        <tr class='clickable-row'
-                            onclick="document.location = '{% url 'customer:customer-detail' item.id %}';">
-                            <th scope="row">{{forloop.counter}}</th>
-                            <td>{{item.name}}</td>
-                            <td>{{item.phone}}</td>
-                            <td>{{item.email}}</td>
-                            <td><a class="btn btn-sm btn-info"
-                                    href="{% url 'customer:customer-update' item.id %}">Update</a></td>
-                            <td><a class="btn btn-sm btn-danger"
-                                    href="{% url 'customer:customer-delete' item.id %}">Delete</a></td>
-                        </tr>
-                        {% endfor %}
-
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
+<div class="card shadow mb-4">
+	<div class="card-header py-3">
+		<h6 class="m-0 font-weight-bold text-primary">Customers</h6>
+	</div>
+	<div class="card-body">
+		<div class="table-responsive">
+			<table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Phone</th>
+						<th>Email</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+				<tfoot>
+					<tr>
+						<th>Name</th>
+						<th>Phone</th>
+						<th>Email</th>
+						<th>Actions</th>
+					</tr>
+				</tfoot>
+				<tbody>
+					{% for item in items %}
+					<tr class='clickable-row' href="#"
+						onclick="document.location = '{% url 'customer:customer-detail' item.id %}';">
+						<td>{{item.name}}</td>
+						<td>{{item.phone}}</td>
+						<td>{{item.email}}</td>
+						<td>
+							<a href="{% url 'customer:customer-detail' item.id %}" class="btn btn-info btn-sm">
+								<i class="fas fa-info-circle"></i>
+							</a>
+							<a href="{% url 'customer:customer-update' item.id %}" class="btn btn-primary btn-sm">
+								<i class="fas fa-edit"></i>
+							</a>
+							<a href="{% url 'customer:customer-delete' item.id %}" class="btn btn-danger btn-sm">
+								<i class="fas fa-trash"></i>
+							</a>
+						</td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
 </div>
 
-{% endblock body_content %}
+
+{% endblock body %}
+
+{% block extrajavascript %}
+<!-- Page level plugins -->
+<script src="{% static 'vendor/datatables/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'vendor/datatables/dataTables.bootstrap4.min.js' %}"></script>
+
+<!-- Page level custom scripts -->
+<script src="{% static 'js/demo/datatables-demo.js' %}"></script>
+{% endblock extrajavascript %}
