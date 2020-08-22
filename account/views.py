@@ -14,8 +14,10 @@ def index(request):
         return render(request, 'account/index.html')
 
 def dashboard(request):
-    return render(request, 'account/dashboard.html')
+    return render(request, 'base.html')
 
+def indexx(request):
+    return render(request, 'index.html')
 
 def loginUser(request):
     if request.user.is_authenticated:
