@@ -7,17 +7,16 @@ from django.contrib.auth.decorators import login_required
 
 
 #@login_required
-def index(request):
-    if request.user.is_anonymous:
-        return render(request, 'account/login.html')
-    else:
-        return render(request, 'account/index.html')
+# def index(request):
+#     if request.user.is_anonymous:
+#         return render(request, 'account/login.html')
+#     else:
+#         return render(request, 'account/index.html')
 
-def dashboard(request):
+def index(request):
     return render(request, 'base.html')
 
-def indexx(request):
-    return render(request, 'index.html')
+
 
 def loginUser(request):
     if request.user.is_authenticated:
