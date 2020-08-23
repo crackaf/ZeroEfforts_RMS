@@ -1,10 +1,10 @@
-{% comment %} 
-    var - title
-    var - pageheading
-    block - body
-    block - extrahead
-    block - extrajavascript
-    block - extrastyle
+{% comment %}
+var - title
+var - pageheading
+block - body
+block - extrahead
+block - extrajavascript
+block - extrastyle
 {% endcomment %}
 {% load static %}
 <!DOCTYPE html>
@@ -25,7 +25,9 @@
 
   <!-- Custom fonts for this template-->
   <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    rel="stylesheet">
 
   <!-- Custom styles for this template-->
   <link href="{% static 'css/sb-admin-2.min.css' %}" rel="stylesheet">
@@ -59,7 +61,7 @@
       {% include 'navbar.html' %}
 
       <!-- Begin Page Content -->
-        <div class="container-fluid">
+      <div class="container-fluid">
 
         <!-- Page Heading -->
         {% if pageheading %}
@@ -69,18 +71,18 @@
         {% block body %}
         {% endblock body %}
 
-        </div>
-        <!-- /.container-fluid -->
-
       </div>
-      <!-- End of Main Content -->
+      <!-- /.container-fluid -->
+
+  </div>
+  <!-- End of Main Content -->
 
 
-        <!-- Footer -->
-        {% include 'footer.html' %}
+  <!-- Footer -->
+  {% include 'footer.html' %}
 
-    </div>
-    <!-- End of Content Wrapper -->
+  </div>
+  <!-- End of Content Wrapper -->
 
   </div>
   <!-- End of Page Wrapper -->
@@ -91,7 +93,8 @@
   </a>
 
   <!-- Logout Modal-->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -119,10 +122,10 @@
   <!-- Custom scripts for all pages-->
   <script src="{% static 'js/sb-admin-2.min.js' %}"></script>
 
-    <!-- Extra JavaScript -->
-   
-    {% block extrajavascript %}
-    {% endblock extrajavascript %}
+  <!-- Extra JavaScript -->
+
+  {% block extrajavascript %}
+  {% endblock extrajavascript %}
 
 
 </body>
