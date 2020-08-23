@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from address.models import Address
 from .models import Customer
 from .forms import CustomerForm
 # Create your views here.
@@ -17,8 +18,11 @@ def customerCreate(request):
             form.save()
             return redirect('customer:customer')
 
-    context = {'form': form}
-    return render(request, 'form_snippet.html', context)
+    context = {
+        'form':form,
+        'addresslist': Address.objects.all(),
+    }
+    return render(request, 'customer/customer_form.html', context)
 
 
 def customerDetail(request, pk):
