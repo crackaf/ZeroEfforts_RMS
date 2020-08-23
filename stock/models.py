@@ -18,7 +18,7 @@ class Stock(models.Model):
         unique_together=['store', 'inventory']
 
     def __str__(self):
-        return (self.store.name+"\t"+self.inventory.name)
+        return (self.store.name+" | "+self.inventory.name)
 
     def get_absolute_url(self):
-        return reverse("stock_detail", kwargs={"pk": self.pk})
+        return reverse("inventory:inventory-detail", kwargs={"pk": self.pk})

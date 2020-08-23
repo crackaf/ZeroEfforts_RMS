@@ -34,9 +34,10 @@ urlpatterns = [
     # path('warehouse/', include('warehouse.urls')),
     # path('store/', include('store.urls')),
     path('sale/', include('sale.urls')),
+    path('stock/', include('stock.urls')),
     # path('purchase/', include('purchase.urls')),
     # path('staff/', include('staff.urls')),
 
     #third party
-    path("select2/", include("django_select2.urls"))
+    # path("select2/", include("django_select2.urls"))
 ]
