@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     #'fontawesome',
     #'phone_field',
     'simple_history',
+    'widget_tweaks',
 
     # Built-in APPS
     'django.contrib.admin',

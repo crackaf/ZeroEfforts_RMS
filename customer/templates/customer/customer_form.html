@@ -1,7 +1,31 @@
 {% extends 'base.html' %}
+{% load widget_tweaks %}
 
 {% block body %}
+
 <form action="" method="POST">
+    {% csrf_token %}
+    {% for field in form %}
+    <div class="form-group row">
+        {{ field.errors }}
+        {{ field.label_tag }}
+        {% comment %} {% render_field field.label_tag class+="col-4 col-form-label" %} {% endcomment %}
+        {% render_field field class+="form-control" %}
+        {% if field.help_text %}
+        <p class="help">{{ field.help_text|safe }}</p>
+        {% endif %}
+    </div>
+    {% endfor %}
+    <div class="form-group row">
+        <div class="offset-4 col-8">
+            <button name="submit" type="submit" class="btn btn-primary">Add Customer</button>
+        </div>
+    </div>
+</form>
+
+{% endblock body %}
+
+{% comment %} <form action="" method="POST">
     {% csrf_token %}
     <div class="form-group row">
         <label for="name" class="col-4 col-form-label">Name:</label>
@@ -50,7 +74,7 @@
             <select id="address" name="address" class="custom-select">
                 <option value selected>No Address</option>
                 {% for ad in addresslist %}
-                    <option value="{{ad.id}}">{{ad}}</option>
+                <option value="{{ad.id}}">{{ad}}</option>
                 {% endfor %}
             </select>
         </div>
@@ -60,5 +84,4 @@
             <button name="submit" type="submit" class="btn btn-primary">Add Customer</button>
         </div>
     </div>
-</form>
-{% endblock body %}
+</form> {% endcomment %}

@@ -17,7 +17,10 @@ def categoryCreate(request):
             form.save()
             return redirect('category:category')
 
-    context = {'form': form}
+    context = {
+        'name': 'Add Category',
+        'form': form,
+    }
     return render(request, 'form_snippet.html', context)
 
 
@@ -35,7 +38,10 @@ def categoryUpdate(request, pk):
             form.save()
             return redirect('category:category')
 
-    context = {'form': form}
+    context = {
+        'name': 'Edit Category',
+        'form': form,
+    }
     return render(request, 'form_snippet.html', context)
 
 

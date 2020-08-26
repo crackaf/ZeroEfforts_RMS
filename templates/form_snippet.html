@@ -1,49 +1,34 @@
 {% extends 'base.html' %}
-
-{% comment %} {% block title %}
-    {{form | to_class_name}}
-{% endblock title %} {% endcomment %}
+{% load widget_tweaks %}
 
 {% block body %}
 
-<form action="" method="POST">
-{% csrf_token %}
-    {% for field in form %}
-        <div class="form-group">
-            {{ field.errors }}
-            {{ field.label_tag }} {{ field }}
-            {% if field.help_text %}
-            <p class="help">{{ field.help_text|safe }}</p>
-            {% endif %}
+<div class="card shadow mb-4 ">
+  <div class="card-header py-3">
+    <h3 class="m-0 font-weight-bold text-primary">{{name}}</h3>
+  </div>
+  <div class="card-body">
+    <form action="" method="POST">
+      {% csrf_token %}
+      {% for field in form %}
+      <div class="form-group">
+        {{ field.errors }}
+        <div class="col-4 col-form-label" style="padding: 0px; margin: 0px">
+          {{ field.label_tag }}
         </div>
-    {% endfor %}
-    
-    {% comment %} {% if form is not None %}
-        {{form}}
-    {% endif %} {% endcomment %}
-    
+        <div class="col-8" style="padding: 0px; margin: 0px">
+          {% render_field field class+="form-control" %}
+        </div>
+        {% if field.help_text %}
+        <p class="help">{{ field.help_text|safe }}</p>
+        {% endif %}
+      </div>
+      {% endfor %}
+      <br>
+      <button name="submit" type="submit" class="btn btn-primary">{{name}}</button>
 
-    <input class="btn btn-success" type="submit" value="Save">
-</form>
-
-<form>
-  <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </form>
   </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
-  </div>
-  <div class="form-group form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-
-
-
+</div>
 
 {% endblock body %}
