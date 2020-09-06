@@ -1,0 +1,36 @@
+{% extends 'table_snippet.html' %}
+
+{% block tname %}
+Sales
+{% endblock tname %}
+{% block thead %}
+    {% block tfoot %}
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Actions</th>
+    {% endblock tfoot %}
+{% endblock thead %}
+
+{% block tbody %}
+
+{% for item in items %}
+<tr class='clickable-row' href="#" onclick="document.location = '{% url 'sale:sale-detail' item.id %}';">
+    <td>{{item.name}}</td>
+    <td>{{item.phone}}</td>
+    <td>{{item.email}}</td>
+    <td>
+        <a href="{% url 'sale:sale-detail' item.id %}" class="btn btn-info btn-sm">
+            <i class="fas fa-info-circle"></i>
+        </a>
+        <a href="{% url 'sale:sale-update' item.id %}" class="btn btn-primary btn-sm">
+            <i class="fas fa-edit"></i>
+        </a>
+        <a href="{% url 'sale:sale-delete' item.id %}" class="btn btn-danger btn-sm">
+            <i class="fas fa-trash"></i>
+        </a>
+    </td>
+</tr>
+{% endfor %}
+
+{% endblock tbody %}
