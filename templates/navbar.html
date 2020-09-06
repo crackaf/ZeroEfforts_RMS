@@ -13,6 +13,22 @@
   Interface
 </div>
 
+<!-- Nav Item - Sale Collapse Menu -->
+<li class="nav-item">
+  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSales" aria-expanded="true"
+    aria-controls="collapseSales">
+    <i class="fas fa-users"></i>
+    <span>Sales</span>
+  </a>
+  <div id="collapseSales" class="collapse" aria-labelledby="headingSales" data-parent="#accordionSidebar">
+    <div class="bg-white py-2 collapse-inner rounded">
+      <a class="collapse-item" href="{% url 'sale:sale' %}">View Sales</a>
+      <a class="collapse-item" href="{% url 'sale:sale-create' %}">Add Sale</a>
+
+    </div>
+  </div>
+</li>
+
 <!-- Nav Item - Customer Collapse Menu -->
 <li class="nav-item">
   <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCustomers" aria-expanded="true"
