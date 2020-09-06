@@ -1,59 +1,18 @@
-{% extends 'base.html'%}
-{% load static %}
+{% extends 'table_snippet.html' %}
 
-{% block extrastyle %}
-<link href="{% static 'vendor/datatables/dataTables.bootstrap4.min.css' %}" rel="stylesheet">
-{% endblock extrastyle %}
+{% block tname %}Customers{% endblock tname %}
+{% block addurl %}{% url 'customer:customer-create' %}{% endblock addurl %}
+{% block addicon %}fas fa-user-plus{% endblock addicon %}
 
-
-{% block body %}
-
-{% comment %} <br>
-<div class="row">
-  <div class="col">
-    <div class="card card-body">
-      <form method="get">
-        <br>
-        <button class="btn btn-primary" type="submit">Search</button>
-      </form>
-    </div>
-  </div>
-</div>
-<br> {% endcomment %}
-
-<div class="card shadow mb-4">
-  <div class="card-header py-3">
-    <div class="d-sm-flex align-items-center justify-content-between ">
-      <h3 class="m-0 font-weight-bold text-primary">Customers</h3>
-      <a href="{% url 'customer:customer-create'%}"
-        class="d-none d-sm-inline-block shadow-sm btn btn-primary btn-icon-split">
-        <span class="icon text-white-50">
-          <i class="fas fa-user-plus"></i>
-        </span>
-        <span class="text">Add</span>
-      </a>
-    </div>
-  </div>
-  <div class="card-body">
-    <div class="table-responsive">
-      <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Phone</th>
-            <th>Email</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tfoot>
-          <tr>
-            <th>Name</th>
-            <th>Phone</th>
-            <th>Email</th>
-            <th>Actions</th>
-          </tr>
-        </tfoot>
-        <tbody>
+{% block thead %}
+    {% block tfoot %}
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Actions</th>
+    {% endblock tfoot %}
+{% endblock thead %}
+{% block tbody %}
           {% for item in items %}
           <tr class='clickable-row' href="#"
             onclick="document.location = '{% url 'customer:customer-detail' item.id %}';">
@@ -73,20 +32,4 @@
             </td>
           </tr>
           {% endfor %}
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>
-
-
-{% endblock body %}
-
-{% block extrajavascript %}
-<!-- Page level plugins -->
-<script src="{% static 'vendor/datatables/jquery.dataTables.min.js' %}"></script>
-<script src="{% static 'vendor/datatables/dataTables.bootstrap4.min.js' %}"></script>
-
-<!-- Page level custom scripts -->
-<script src="{% static 'js/demo/datatables-demo.js' %}"></script>
-{% endblock extrajavascript %}
+{% endblock tbody %}
