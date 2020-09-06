@@ -1,15 +1,8 @@
 {% extends 'table_snippet.html' %}
 
 {% block tname %}Sales{% endblock tname %}
-{% block addurl %}
-<a f="{% url 'sale:sale-create' %}" class="d-none d-sm-inline-block shadow-sm btn btn-primary btn-icon-split">
-        <span class="icon text-white-50">
-          <i class="fas fa-user-plus"></i>
-        </span>
-        <span class="text">Add</span>
-      </a>
-{% endblock addurl %}
-
+{% block addurl %}{% url 'sale:sale-create' %}{% endblock addurl %}
+{% block addicon %}fas fa-user-plus{% endblock addicon %}
 
 
 
